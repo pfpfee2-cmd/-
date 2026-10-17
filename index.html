@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="テスト対策">
+<meta name="theme-color" content="#2a78d6">
+<link rel="apple-touch-icon" href="icon.png">
+<title>定期テスト対策</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="in">
+  <span class="title" onclick="go('home')">📚 テスト対策</span>
+  <span class="sp"></span>
+  <span class="timerchip" id="timerchip">今日 0分</span>
+  <button class="iconbtn" onclick="go('search')" aria-label="さがす">🔍</button>
+  <button class="iconbtn" onclick="cycleFont()" aria-label="文字の大きさ">Aa</button>
+  <button class="iconbtn" onclick="go('settings')" aria-label="設定">⚙️</button>
+</div></header>
+<main class="app" id="main"></main>
+<nav id="tabbar"></nav>
+
+<script src="lib/d3-array.min.js"></script>
+<script src="lib/d3-geo.min.js"></script>
+<script src="lib/topojson-client.min.js"></script>
+<script src="lib/world50m.js"></script>
+<script src="lib/mapdata.js"></script>
+<script src="core.js"></script>
+<script src="data/eng_dict.js"></script>
+<script src="data/eng_gojun.js"></script>
+<script src="data/eng_print.js"></script>
+<script src="data/eng_vocab.js"></script>
+<script src="data/eng_work.js"></script>
+<script src="data/gloss.js"></script>
+<script src="data/jp_grammar.js"></script>
+<script src="data/jp_kanji.js"></script>
+<script src="data/jp_work.js"></script>
+<script src="data/math_dash.js"></script>
+<script src="data/math_print.js"></script>
+<script src="data/math_work.js"></script>
+<script src="data/sci_work.js"></script>
+<script src="data/soc_jiji.js"></script>
+<script src="data/soc_print.js"></script>
+<script src="data/soc_work.js"></script>
+<script src="data/tech.js"></script>
+<script src="data/tech_mondai.js"></script>
+<script src="views.js"></script>
+<script src="extra.js"></script>
+<script src="v2.js"></script>
+<script>
+  store.load(); applyTheme(); applyFont(); prepare();
+  // 最初に開いたときは、まず「解き直し」から
+  if(store.d.firstRun && unfixedWrong().length){ location.hash='redo'; }
+  route();
+</script>
+</body>
+</html>
